@@ -105,27 +105,45 @@ document.addEventListener('DOMContentLoaded', () => {
           merge();
           piece.y = 0;
           clearBoard();
+          generatePiece();
       }
   }
 
-  document.addEventListener('keydown', event => {
-      if (event.keyCode === 37) { // Left arrow
-          piece.x--;
-          if (collision(piece.x, piece.y, piece.shape)) {
-              piece.x++;
-          }
-      } else if (event.keyCode === 39) { // Right arrow
+  function generatePiece() {
+      const pieces = [
+          [[1, 1, 1, 1], 'red'],
+          [[1, 1, 1, 0], 'blue'],
+          [[1, 1, 0, 0], 'green'],
+          [[1, 0, 0, 0], 'yellow'],
+          [[1, 1, 1, 0], 'purple'],
+          [[1, 1, 0, 1], 'orange'],
+          [[1, 0, 1, 0], 'cyan']
+      ];
+      const randomIndex = Math.floor(Math.random() * pieces.length);
+      piece.shape = pieces[randomIndex][0];
+      piece.color = pieces[randomIndex][1];
+      piece.x = Math.floor(columns / 2) - Math.floor(piece.shape[0].length / 2);
+      piece.y = 0;
+  }
+
+  document.getElementById('move-left').addEventListener('click', () => {
+      piece.x--;
+      if (collision(piece.x, piece.y, piece.shape)) {
           piece.x++;
-          if (collision(piece.x, piece.y, piece.shape)) {
-              piece.x--;
-          }
-      } else if (event.keyCode === 40) { // Down arrow
-          dropPiece();
-      } else if (event.keyCode === 38) { // Up arrow (rotate)
-          const rotated = rotate(piece.shape);
-          if (!collision(piece.x, piece.y, rotated)) {
-              piece.shape = rotated;
-          }
+      }
+  });
+
+  document.getElementById('move-right').addEventListener('click', () => {
+      piece.x++;
+      if (collision(piece.x, piece.y, piece.shape)) {
+          piece.x--;
+      }
+  });
+
+  document.getElementById('rotate').addEventListener('click', () => {
+      const rotated = rotate(piece.shape);
+      if (!collision(piece.x, piece.y, rotated)) {
+          piece.shape = rotated;
       }
   });
 
@@ -135,8 +153,17 @@ document.addEventListener('DOMContentLoaded', () => {
       drawPiece();
   }
 
+  generatePiece();
   setInterval(() => {
       draw();
       dropPiece();
   }, 1000);
+
+  const piece = {
+      x: 0,
+      y: 0,
+      color: '',
+      shape: []
+  };
 });
+
