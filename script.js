@@ -105,25 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
           merge();
           piece.y = 0;
           clearBoard();
-          generatePiece();
       }
-  }
-
-  function generatePiece() {
-      const pieces = [
-          [[1, 1, 1, 1], 'red'],
-          [[1, 1, 1, 0], 'blue'],
-          [[1, 1, 0, 0], 'green'],
-          [[1, 0, 0, 0], 'yellow'],
-          [[1, 1, 1, 0], 'purple'],
-          [[1, 1, 0, 1], 'orange'],
-          [[1, 0, 1, 0], 'cyan']
-      ];
-      const randomIndex = Math.floor(Math.random() * pieces.length);
-      piece.shape = pieces[randomIndex][0];
-      piece.color = pieces[randomIndex][1];
-      piece.x = Math.floor(columns / 2) - Math.floor(piece.shape[0].length / 2);
-      piece.y = 0;
   }
 
   document.getElementById('move-left').addEventListener('click', () => {
@@ -153,17 +135,18 @@ document.addEventListener('DOMContentLoaded', () => {
       drawPiece();
   }
 
-  generatePiece();
   setInterval(() => {
       draw();
       dropPiece();
   }, 1000);
 
   const piece = {
-      x: 0,
+      x: 3,
       y: 0,
-      color: '',
-      shape: []
+      color: 'red',
+      shape: [
+          [1, 1, 1, 1]
+      ]
   };
 });
 
