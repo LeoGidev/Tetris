@@ -140,13 +140,29 @@ document.addEventListener('DOMContentLoaded', () => {
       dropPiece();
   }, 1000);
 
-  const piece = {
-      x: 3,
-      y: 0,
-      color: 'red',
-      shape: [
-          [1, 1, 1, 1]
-      ]
-  };
+  function generateRandomPiece() {
+    const shapes = [
+        [[1, 1, 1, 1]],                  // Línea horizontal
+        [[1, 1], [1, 1]],                // Cuadrado
+        [[1, 1, 1], [0, 1, 0]],          // T
+        [[1, 1, 1], [0, 0, 1]],          // L
+        [[1, 1, 1], [1, 0, 0]],          // L invertida
+        [[0, 1], [1, 1], [1, 0]],        // S
+        [[1, 0], [1, 1], [0, 1]]         // S invertida
+    ];
+
+    const randomIndex = Math.floor(Math.random() * shapes.length);
+    const randomShape = shapes[randomIndex];
+
+    return {
+        x: 3,
+        y: 0,
+        color: 'red', // Color
+        shape: randomShape
+    };
+}
+
+// Uso de la función para generar una pieza aleatoria
+const piece = generateRandomPiece();
 });
 
