@@ -98,6 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
             board.unshift(Array(columns).fill('#fff'));
             scoring += 100; // Incrementar la puntuación por cada fila completa eliminada
             updateScore(); // Llamar a la función para actualizar la puntuación en el HTML
+            experto();//testing
             if(scoring < 300){
                 nivel='Junior';
             }else if(scoring < 500){
@@ -107,6 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             else{
                 nivel = 'Experto';
+                experto();
             }
             level();
         }
@@ -131,7 +133,10 @@ function experto() {
     const levelElement = document.getElementById('nivel');
     scoringElement.textContent = 'Felcidades';
     levelElement.textContent = '¡¡Eres el Maestro del Tetris!!'
+    document.getElementById('Felicidades').style.display = 'block';
   }
+
+  
 
 
   function dropPiece() {
@@ -214,4 +219,9 @@ let color = generacolor();
 // Uso de la función para generar una pieza aleatoria
 let piece = generateRandomPiece();
 });
+
+//cerrar alerta
+function cerrarAlerta() {
+    document.getElementById('Felicidades').style.display = 'none';
+  }
 
