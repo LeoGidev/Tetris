@@ -84,20 +84,29 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function clearBoard() {
-      for (let r = 0; r < rows; r++) {
-          let rowFilled = true;
-          for (let c = 0; c < columns; c++) {
-              if (board[r][c] === '#fff') {
-                  rowFilled = false;
-                  break;
-              }
-          }
-          if (rowFilled) {
-              board.splice(r, 1);
-              board.unshift(Array(columns).fill('#fff'));
-          }
-      }
-  }
+    for (let r = 0; r < rows; r++) {
+        let rowFilled = true;
+        for (let c = 0; c < columns; c++) {
+            if (board[r][c] === '#fff') {
+                rowFilled = false;
+                break;
+            }
+        }
+        if (rowFilled) {
+            board.splice(r, 1);
+            board.unshift(Array(columns).fill('#fff'));
+            scoring += 100; // Incrementar la puntuación por cada fila completa eliminada
+            updateScore(); // Llamar a la función para actualizar la puntuación en el HTML
+        }
+    }
+}
+
+//coloca el punatje en el scoring
+function updateScore() {
+  const scoringElement = document.getElementById('scoring');
+  scoringElement.textContent = scoring;
+}
+
 
   function dropPiece() {
     piece.y++;
