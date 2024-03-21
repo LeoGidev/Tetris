@@ -57,3 +57,7 @@ table{
   border: 2px solid rgb(124, 124, 176);
   border-radius: 10px;
 }
+td{
+  text-align: center;
+  border: 1px solid white;
+}
