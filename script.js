@@ -104,10 +104,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (collision(piece.x, piece.y, piece.shape)) {
         piece.y--;
         merge();
-        piece = generateRandomPiece(); // Generar nueva pieza aleatoria
+        piece.color = generacolor(); // Actualizar el color de la pieza
+        piece = generateRandomPiece(); // Generar una nueva pieza aleatoria
         clearBoard();
     }
 }
+
 
 
   document.getElementById('move-left').addEventListener('click', () => {
@@ -159,10 +161,20 @@ document.addEventListener('DOMContentLoaded', () => {
     return {
         x: 3,
         y: 0,
-        color: 'red', // Color
+        color: generacolor(), // Color
         shape: randomShape
     };
 }
+
+function generacolor() {
+  const colors = ['red', 'blue', 'green', 'orange', 'cyan', 'pink', 'gray'];
+  const randomIndexC = Math.floor(Math.random() * colors.length);
+  const randomColor = colors[randomIndexC];
+  return randomColor;
+}
+
+let color = generacolor();
+
 
 // Uso de la función para generar una pieza aleatoria
 let piece = generateRandomPiece();
