@@ -17,6 +17,13 @@ canvas {
   margin-top: 20px; /* Centra verticalmente el contenido en la parte inferior */
 }
 
+#controls{
+  margin-top: 10px;
+  background-color: rgb(43, 43, 43);
+  padding: 10px;
+  box-shadow: 0px 10px 10px black;
+}
+
 .direccion {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -34,10 +41,10 @@ canvas {
 }
 
 .direccion:hover {
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 23px;
+  padding-right: 23px;
   background-color: rgb(5, 19, 220);
-  scale: 0.9;
+  
   transition: 1s;
 }
 
@@ -45,7 +52,7 @@ canvas {
   padding: 10px;
   background-color: rgb(0, 213, 255);
   color:rgb(0, 26, 65);
-  scale: 0.8;
+  scale: 0.98;
   box-shadow: 0px 0px 10px black;
 }
 table{
