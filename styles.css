@@ -14,7 +14,7 @@ canvas {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20%; /* Centra verticalmente el contenido en la parte inferior */
+  margin-top: 20px; /* Centra verticalmente el contenido en la parte inferior */
 }
 
 .direccion {
