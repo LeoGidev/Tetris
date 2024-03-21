@@ -10,7 +10,10 @@ body {
 canvas {
   border: 1px solid #000;
 }
-
+.contenedor{
+  display: flex;
+  align-items: center;
+}
 .direccion {
   padding: 10px;
   background-color: rgb(69, 81, 255);
