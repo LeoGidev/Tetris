@@ -25,7 +25,7 @@ canvas {
   flex-direction: column;
   align-items: center;
   margin-top: 20px; /* Centra verticalmente el contenido en la parte inferior */
-  border: 1px solid black;
+  
 }
 
 #controls{
@@ -70,7 +70,8 @@ canvas {
 .score{
   display: flex;
   justify-content: center;
-  border: 1px solid red;
+  
+  width: 100%;
 
 }
 table{
@@ -78,7 +79,6 @@ table{
   background-color: rgb(43, 43, 43);
   color: white;
   padding: 10px;
-  margin: 10px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   box-shadow: 0px -10px 0px rgb(51, 51, 51);
@@ -91,7 +91,7 @@ td{
   text-shadow: 0px 0px 10px rgba(0, 0, 255, 0.639);
   font-weight: bolder;
   }
-#scoring{
+.valor{
   margin: 10px;
   background-color: rgb(43, 49, 43);
   padding-left: 20px;
