@@ -1,7 +1,6 @@
 body {
   display: flex;
   justify-content: center;
-  align-items: center;
   height: 100vh;
   margin: 0;
   background-color: #f0f0f0;
@@ -10,30 +9,42 @@ body {
 canvas {
   border: 1px solid #000;
 }
-.contenedor{
+
+.contenedor {
   display: flex;
+  flex-direction: column;
   align-items: center;
+  margin-top: 20%; /* Centra verticalmente el contenido en la parte inferior */
 }
+
 .direccion {
-  padding: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 25px;
+  padding-right: 25px;
   background-color: rgb(69, 81, 255);
-  border-radius: 50%; /* Hace que el borde del botón sea redondo */
+  border-radius: 50%;
   color: white;
   font-size: large;
   font-weight: bolder;
-  border: none; /* Elimina el borde del botón */
-  cursor: pointer; /* Cambia el cursor al pasar por encima del botón */
-  outline: none; /* Elimina el contorno del botón al hacer clic */
+  border: none;
+  cursor: pointer;
+  outline: none;
+  transition: 1s;
 }
+
 .direccion:hover {
-  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
   background-color: rgb(5, 19, 220);
-  scale:0.9;
+  scale: 0.9;
+  transition: 1s;
 }
+
 .direccion:active {
   padding: 10px;
-  background-color: rgb(5, 184, 220);
-  scale:0.8;
+  background-color: rgb(0, 213, 255);
+  color:rgb(0, 26, 65);
+  scale: 0.8;
   box-shadow: 0px 0px 10px black;
 }
-  
