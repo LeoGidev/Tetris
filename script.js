@@ -98,40 +98,15 @@ document.addEventListener('DOMContentLoaded', () => {
             board.unshift(Array(columns).fill('#fff'));
             scoring += 100; // Incrementar la puntuación por cada fila completa eliminada
             updateScore(); // Llamar a la función para actualizar la puntuación en el HTML
-            switch (scoring){
-                case 0:
-                    nivel=1;
-                    break;
-                case 100:
-                    nivel=2;
-                    break;
-                case 200:
-                    nivel=3;
-                    break;
-                case 300:
-                    nivel=4;
-                    break;
-                case 400:
-                    nivel=5;
-                    break;
-                case 500:
-                    nivel=6;
-                    break;
-                case 600:
-                    nivel=7;
-                    break;
-                case 700:
-                    nivel=8;
-                    break;
-                case 800:
-                    nivel=9;
-                case 900:
-                    nivel = 10;
-                case 1000:
-                    nivel = "Experto"
-                    experto();
-                    break;
-                
+            if(scoring < 300){
+                nivel='Junior';
+            }else if(scoring < 500){
+                nivel='Semi-Senior'
+            }else if(scoring < 999){
+                nivel= 'Senior';
+            }
+            else{
+                nivel = 'Experto';
             }
             level();
         }
