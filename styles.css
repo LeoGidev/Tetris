@@ -11,4 +11,26 @@ canvas {
   border: 1px solid #000;
 }
 
+.direccion {
+  padding: 10px;
+  background-color: rgb(69, 81, 255);
+  border-radius: 50%; /* Hace que el borde del botón sea redondo */
+  color: white;
+  font-size: large;
+  font-weight: bolder;
+  border: none; /* Elimina el borde del botón */
+  cursor: pointer; /* Cambia el cursor al pasar por encima del botón */
+  outline: none; /* Elimina el contorno del botón al hacer clic */
+}
+.direccion:hover {
+  padding: 10px;
+  background-color: rgb(5, 19, 220);
+  scale:0.9;
+}
+.direccion:active {
+  padding: 10px;
+  background-color: rgb(5, 184, 220);
+  scale:0.8;
+  box-shadow: 0px 0px 10px black;
+}
   

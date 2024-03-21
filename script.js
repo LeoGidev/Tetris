@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const scale = 20;
   const rows = canvas.height / scale;
   const columns = canvas.width / scale;
+  let scoring = 0;
 
   function drawSquare(x, y, color) {
       context.fillStyle = color;
@@ -99,14 +100,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function dropPiece() {
-      piece.y++;
-      if (collision(piece.x, piece.y, piece.shape)) {
-          piece.y--;
-          merge();
-          piece.y = 0;
-          clearBoard();
-      }
-  }
+    piece.y++;
+    if (collision(piece.x, piece.y, piece.shape)) {
+        piece.y--;
+        merge();
+        piece = generateRandomPiece(); // Generar nueva pieza aleatoria
+        clearBoard();
+    }
+}
+
 
   document.getElementById('move-left').addEventListener('click', () => {
       piece.x--;
@@ -163,6 +165,6 @@ document.addEventListener('DOMContentLoaded', () => {
 }
 
 // Uso de la función para generar una pieza aleatoria
-const piece = generateRandomPiece();
+let piece = generateRandomPiece();
 });
 
