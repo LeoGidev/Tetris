@@ -182,7 +182,7 @@ function experto() {
   setInterval(() => {
       draw();
       dropPiece();
-  }, 1000);
+  }, 500);
 
   function generateRandomPiece() {
     const shapes = [
