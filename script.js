@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const columns = canvas.width / scale;
   let scoring = 0;
   let nivel = 'Manco';
+  let velocidad = 900;
 
   function drawSquare(x, y, color) {
       context.fillStyle = color;
@@ -99,15 +100,19 @@ document.addEventListener('DOMContentLoaded', () => {
             scoring += 100; // Incrementar la puntuación por cada fila completa eliminada
             updateScore(); // Llamar a la función para actualizar la puntuación en el HTML
            
-            if(scoring < 300){
+            if(scoring < 100){
                 nivel='Manco';
+                
             }else if(scoring < 500){
-                nivel='Novato'
+                nivel='Novato';
+                velocidad=800;
             }else if(scoring < 999){
                 nivel= 'Pro';
+                velocidad=600;
             }
             else{
                 nivel = 'Experto';
+                velocidad=200;
                 experto();
             }
             level();
@@ -181,7 +186,7 @@ function experto() {
   setInterval(() => {
       draw();
       dropPiece();
-  }, 500);
+  }, velocidad);
 
   function generateRandomPiece() {
     const shapes = [
