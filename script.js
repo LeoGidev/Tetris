@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const rows = canvas.height / scale;
   const columns = canvas.width / scale;
   let scoring = 0;
-  let nivel = 0;
+  let nivel = 'Manco';
 
   function drawSquare(x, y, color) {
       context.fillStyle = color;
@@ -98,13 +98,13 @@ document.addEventListener('DOMContentLoaded', () => {
             board.unshift(Array(columns).fill('#fff'));
             scoring += 100; // Incrementar la puntuación por cada fila completa eliminada
             updateScore(); // Llamar a la función para actualizar la puntuación en el HTML
-            experto();//testing
+           
             if(scoring < 300){
-                nivel='Junior';
+                nivel='Manco';
             }else if(scoring < 500){
-                nivel='Semi-Senior'
+                nivel='Novato'
             }else if(scoring < 999){
-                nivel= 'Senior';
+                nivel= 'Pro';
             }
             else{
                 nivel = 'Experto';
@@ -132,7 +132,6 @@ function experto() {
     const scoringElement = document.getElementById('scoring');
     const levelElement = document.getElementById('nivel');
     scoringElement.textContent = 'Felcidades';
-    levelElement.textContent = '¡¡Eres el Maestro del Tetris!!'
     document.getElementById('Felicidades').style.display = 'block';
   }
 
